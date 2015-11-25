@@ -1,0 +1,4 @@
+services:
+#    yata_data_retriever.example:
+#        class: YATA\DataRetrieverBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
