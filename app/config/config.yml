@@ -97,5 +97,5 @@ hwi_oauth:
     resource_owners:
         any_name:
             type:               twitter
-            client_id:          orVdAPiraBVOtgkSYCcUJQDjG
-            client_secret:      5Fio3wBlIQ3zwR6aqckxWjlTNnwXjHaOw3LOxOugrPjcQVhjCA
+            client_id:          3TgfCisDJnMDvPUbukwvpmvyp
+            client_secret:      8T22l5coiifL2Ecsqb2jRvHXtWYDtwAd081AtgwIRg0tAlHzTe
