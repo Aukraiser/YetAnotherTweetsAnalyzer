@@ -7,7 +7,7 @@
 [Twitter API Search](https://dev.twitter.com/rest/public/search)  
 [Ruby API](http://www.rubydoc.info/gems/twitter/Twitter/REST/Search)  
 Pour toi sam (regarde tout en bas)=> [Retour Twitter](https://dev.twitter.com/rest/reference/get/search/tweets)  
-
+Sam check that => [Twitterfields](https://dev.twitter.com/overview/api/tweets)  
 ## CentOS ##
 
 [Config LAMP env](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-6)  
