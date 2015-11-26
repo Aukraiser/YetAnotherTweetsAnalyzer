@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    Tweets for {{ username }}:<br>
-    <a href={{ path('yata_data_retriever_homepage') }}>Home page</a>
+    <p>Data:</p>
+    {#{% for key, element in data %}#}
+        {#{{ key }} : {{ element }}<br>#}
+{#{% endfor %}#}
+<pre>{{ data }}</pre>
+<a href={{ path('yata_data_retriever_homepage') }}>Home page</a>
 {% endblock %}
