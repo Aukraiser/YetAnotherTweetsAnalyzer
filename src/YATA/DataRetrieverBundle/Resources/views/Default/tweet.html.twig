@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     Tweets for {{ username }}:<br>
+    {{ tweet }}<br>
     <a href={{ path('yata_data_retriever_homepage') }}>Home page</a>
 {% endblock %}

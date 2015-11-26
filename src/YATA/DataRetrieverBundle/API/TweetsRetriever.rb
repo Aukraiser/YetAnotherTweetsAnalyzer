@@ -1,4 +1,4 @@
-$:.unshift(File.expand_path("../API/twitter/lib"))
+#$:.unshift(File.expand_path("../../API/twitter/lib"))
 require 'twitter'
 require 'json'
 

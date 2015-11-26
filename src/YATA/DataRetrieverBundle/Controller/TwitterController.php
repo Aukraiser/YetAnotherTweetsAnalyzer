@@ -26,7 +26,7 @@ class TwitterController extends Controller
     {
       $form = json_encode($form);
       #$test = system("ruby ../API/TweetsRetriever.rb");
-      $test = system("ls ../src/YATA/DataRetrieverBundle/API/TweetsRetriever.rb");
+      $test = system("ruby ../src/YATA/DataRetrieverBundle/API/TweetsRetriever.rb");
       return ($test);
     }
 
