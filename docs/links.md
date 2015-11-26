@@ -4,8 +4,20 @@
 
 [Dev Twitter](dev.twitter.com)  
 [8 easy step to set up twitter API](http://iag.me/socialmedia/build-your-first-twitter-app-using-php-in-8-easy-steps/)  
-[Twitter API Search](https://dev.twitter.com/rest/public/search)
-
+[Twitter API Search](https://dev.twitter.com/rest/public/search)  
+[Ruby API](http://www.rubydoc.info/gems/twitter/Twitter/REST/Search)  
+Pour toi sam (regarde tout en bas)=> [Retour Twitter](https://dev.twitter.com/rest/reference/get/search/tweets)  
+Sam check that => [Twitterfields](https://dev.twitter.com/overview/api/tweets)  
+Tweet Field :
+* (coordinates)
+* created_at
+* favourite_count
+* id
+* lang
+* place
+* retweet_count
+* text
+* users
 
 ## CentOS ##
 
