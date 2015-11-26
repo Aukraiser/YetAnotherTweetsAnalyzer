@@ -7,5 +7,6 @@
 /app/phpunit.xml
 /bin/
 /composer.phar
-#/vendor/
-#/web/bundles/
+/vendor/
+/web/bundles/
+YetAnotherTweetsAnalyzer.komodoproject

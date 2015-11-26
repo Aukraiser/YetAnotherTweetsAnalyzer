@@ -2,7 +2,7 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: symfony
+    database_name: yatadb
     database_user: root
     database_password: null
     mailer_transport: smtp
@@ -10,3 +10,5 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 7f492e701861faeb81619b41aecfcddcaf40c8a8
+    mongodb_server: mongodb://localhost:27017
+    mongo_database: yatadb
