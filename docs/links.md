@@ -29,3 +29,6 @@ Tweet Field :
 
 [Symfony in 10 min](http://symfony.com/doc/current/quick_tour/the_big_picture.html)  
 [Super tuto developpez.com (totally outdated) #bouhIssam](http://j-place.developpez.com/tutoriels/php/creer-premiere-application-web-avec-symfony2)
+
+## Ruby ##
+[Ruby with PHP](http://stackoverflow.com/questions/1359694/how-to-pass-array-in-php-to-ruby)
