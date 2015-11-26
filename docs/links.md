@@ -6,7 +6,7 @@
 [8 easy step to set up twitter API](http://iag.me/socialmedia/build-your-first-twitter-app-using-php-in-8-easy-steps/)  
 [Twitter API Search](https://dev.twitter.com/rest/public/search)  
 [Ruby API](http://www.rubydoc.info/gems/twitter/Twitter/REST/Search)  
-Pour toi sam => [Retour Twitter](https://dev.twitter.com/rest/reference/get/search/tweets)  
+Pour toi sam (regarde tout en bas)=> [Retour Twitter](https://dev.twitter.com/rest/reference/get/search/tweets)  
 
 ## CentOS ##
 
