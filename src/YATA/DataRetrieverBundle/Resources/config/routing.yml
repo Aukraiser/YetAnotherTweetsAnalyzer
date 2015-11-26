@@ -1,3 +1,7 @@
 yata_data_retriever_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: YATADataRetrieverBundle:Default:index }
+    path:     /
+    defaults: { _controller: YATADataRetrieverBundle:Twitter:index }
+
+yata_data_retriever_tweet:
+    path:     /tweet
+    defaults: { _controller: YATADataRetrieverBundle:Twitter:tweet }
