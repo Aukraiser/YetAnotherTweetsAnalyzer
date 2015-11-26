@@ -93,7 +93,7 @@ swiftmailer:
     
 
 hwi_oauth:
-    firewall_names:             [secured_area]
+    firewall_name:              secured_area
     resource_owners:
         any_name:
             type:               twitter

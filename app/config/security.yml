@@ -26,7 +26,7 @@ security:
                 failure_path:      /login
 
                 oauth_user_provider:
-                    service: my.oauth_aware.user_provider.service
+                    service: hwi_oauth.user.provider
 
         main:
             anonymous: ~
