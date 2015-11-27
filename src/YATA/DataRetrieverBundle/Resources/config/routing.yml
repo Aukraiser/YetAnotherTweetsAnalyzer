@@ -5,3 +5,7 @@ yata_data_retriever_homepage:
 yata_data_retriever_tweet:
     path:     /tweet
     defaults: { _controller: YATADataRetrieverBundle:Twitter:tweet }
+    
+yata_show_data:
+    path:     /show
+    defaults: { _controller: YATADataRetrieverBundle:Twitter:show }
