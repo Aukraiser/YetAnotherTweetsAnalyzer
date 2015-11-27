@@ -31,8 +31,9 @@ class TwitterController extends Controller
             ->add('locale', 'text', array('required' => false))
             ->add('resultType', 'choice', array(
                 'choices' => array(
-                    'mixed' => 'Mixed',
+                    'popular' => 'Popular',
                     'recent' => 'Recent',
+                    'mixed' => 'Mixed'
                     ),
                     'required' => false
                 ))
@@ -88,7 +89,7 @@ class TwitterController extends Controller
                                         'includeEntities' => $includeEntities
                                     ));
         $results = $consumer->execute($query);
-        //$resultsDecode = json_decode($results);
+        //$resultsDecode = bson_decode($results);
         
         return $this->render('YATADataRetrieverBundle:Default:tweet.html.twig', array('data' => $results));
         
