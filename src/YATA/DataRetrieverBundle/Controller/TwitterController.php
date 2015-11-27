@@ -30,8 +30,14 @@ class TwitterController extends Controller
             ->add('country', 'text', array('required' => false))
             ->add('send', 'submit', array('label' => 'Get Tweets'))
             ->getForm();
+            
+            $r = new Request();
+            $r->create("https://api.twitter.com/1.1/search/tweets.json?q=%40twitterapi", "GET");
+            $test = $r->getContent();
 
-        return $this->render('YATADataRetrieverBundle:Default:index.html.twig', array('form' => $form->createView()));
+        return $this->render('YATADataRetrieverBundle:Default:index.html.twig',
+                             array('form' => $form->createView(),
+                                   'test' => $test));
     }
 
     public function tweetAction(Request $request)

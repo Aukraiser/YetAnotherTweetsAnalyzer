@@ -20,7 +20,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/mongodb-odm": "1.0.*@beta",
         "doctrine/mongodb-odm-bundle": "3.0.*@beta",
-        "hwi/oauth-bundle": "^0.3.9"
+        "hwi/oauth-bundle": "^0.3.9",
+        "nixilla/twitter-api-consumer": "^0.5.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

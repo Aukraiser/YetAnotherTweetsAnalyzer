@@ -12,3 +12,7 @@ parameters:
     secret: 7f492e701861faeb81619b41aecfcddcaf40c8a8
     mongo_database: yatadb
     mongodb_server: 'mongodb://localhost:27017'
+    twitter_app_id: orVdAPiraBVOtgkSYCcUJQDjG
+    twitter_secret: 5Fio3wBlIQ3zwR6aqckxWjlTNnwXjHaOw3LOxOugrPjcQVhjCA
+    twitter_access_token: 4288109729-5bYw62ZAmSGkqTayFAG4G4Pq10bT25UUE4L1QfO
+    twitter_token_secret: 5HEOkJGssp3hsCSmDBR9OnIyn2E6OAbmrsAUAwR5n9d9f
