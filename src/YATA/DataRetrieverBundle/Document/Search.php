@@ -1,0 +1,103 @@
+<?php
+namespace YATA\DataRetrieverBundle\Document;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class Search
+{
+    /**
+     * @MongoDB\Id
+     */
+    private $id;
+    
+    /**
+     * @var String Twitter searchParams
+     * @Assert\NotBlank()
+     * @MongoDB\String
+     */
+    private $searchParams;
+
+    /**
+     * @var String Tweet language
+     * @MongoDB\String
+     */
+    private $lang;
+    
+    /**
+     * @var String Tweet ResultType
+     * @MongoDB\String
+     */
+    private $resultType;
+    
+    /**
+     * @return String
+     */
+    public function getSearchParams()
+    {
+        return $this->searchParams;
+    }
+
+    /**
+     * @param String $searchParams
+     */
+    public function setSearchParams($searchParams)
+    {
+        $this->searchParams = $searchParams;
+    }
+
+    /**
+     * @return String
+     */
+    public function getLang()
+    {
+        return $this->lang;
+    }
+
+    /**
+     * @param String $lang
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+    }
+    
+    /**
+     * @return String
+     */
+    public function getResultType()
+    {
+        return $this->resultType;
+    }
+    
+    /**
+     * @param String resultType
+     */
+    public function setResultType($resultType)
+    {
+        $this->resultType = $resultType;
+    }
+    
+    /**
+     * @return Integer
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+    
+
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

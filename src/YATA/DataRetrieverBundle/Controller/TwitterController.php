@@ -4,7 +4,7 @@ namespace YATA\DataRetrieverBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use YATA\DataRetrieverBundle\Object\Search;
+use YATA\DataRetrieverBundle\Document\Search;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 use Twitter\OAuth2\Consumer;
@@ -33,7 +33,6 @@ class TwitterController extends Controller
                 ),
                 'required' => false
             ))
-            ->add('locale', 'text', array('required' => false))
             ->add('resultType', 'choice', array(
                 'choices' => array(
                     'popular' => 'Popular',
@@ -42,8 +41,6 @@ class TwitterController extends Controller
                     ),
                     'required' => false
                 ))
-            ->add('count', 'text', array('required' => false))
-            ->add('includeEntities', 'text', array('required' => false))
             ->add('send', 'submit', array('label' => 'Get Tweets'))
             ->getForm();
             
@@ -91,10 +88,7 @@ class TwitterController extends Controller
         foreach ($tabSearch as $elem)
             $searchUrlParams .= $elem;
         $lang = $data['lang'];
-        $locale = $data['locale'];
         $resultType = $data['resultType'];
-        $count = $data['count'];
-        $includeEntities = $data['includeEntities'];
         
         //Getting tweets
         $client = new Browser($curl);
@@ -105,10 +99,8 @@ class TwitterController extends Controller
                                     array(
                                         'q' => $searchUrlParams,
                                         'lang' => $lang,
-                                        'locale' => $locale,
                                         'resultType' => $resultType,
-                                        'count' => $count,
-                                        'includeEntities' => $includeEntities
+
                                     ));
         $results = $consumer->execute($query);
         return $resultsDecode = json_decode(json_encode($results->toArray()));
