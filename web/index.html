@@ -9,7 +9,13 @@
   <link rel="stylesheet" type="text/css" href="css/main.8.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/jquery-ultimate-fancy-form.css" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link href="css/custom.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
   <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->*
 </head>
 <body id="home" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -33,6 +39,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
+                <li><a href="#analyzis">ANALYZIS</a></li>
                 <li><a href="#services">SERVICES</a></li>
                 <li><a href="#about">ABOUT US</a></li>
                 <li><a href="#contact">CONTACT</a></li>
@@ -49,38 +56,78 @@
           <div class="text-center">
             <h1 class="animated fadeInDown"><img src="http://imagizer.imageshack.us/a/img903/4050/Fj7k47.png"/><br/><br/>Yet Another Tweets Analyzer</h1>
             <p class="sub-text animated fadeInDown">The most efficient website analyzer to search Tweets</p>
-          </div>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <form name="query" id="query" action="" method="post">
-                <div class="form-group">
-                  <div id="querybox">
-                   <div class="row">
-                      <div class="col-sm-8">
-                        <input type="text" name="url" id="url" value="http://" />
-                        <i id="loading" class="icon-loader animate-spin i-200"></i>
+          </div> 
+      </div>
+    </div>
+    
+    <div id="analyzis" class="container-fluid text-center">
+      <div class="featurecol">
+        <h2 class="text-center">Launch Anlyzis</h2>
+        <p class="text-center">
+          <i class="fa fa-search fa-4x"></i>
+          <i class="fa fa-twitter fa-4x"></i>
+        </p>
+        <div class="form-container">
+          <form class="form form-horizontal component-uff" onkeypress="return event.keyCode != 13;" role="form">
+            <div class="row">
+              <div class="col-md-8">
+                <div data-step>
+                  <h4 data-sb="fadeInLeft">Analyzis Information</h4>        
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" data-sb="fadeInRight">Keywords</label>
+                    <div class="col-sm-10">
+                      <input data-sb="fadeInLeft" type="text" class="form-control" data-validation-required="#keywords_required" name="keywords">
+                      <div class="clearfix"></div>
+                        <div id="keywords_required" class="alert alert-danger">Keywords is required</div>
                       </div>
-                      <div class="col-sm-4 col-submit">
-                        <button type="submit" id="submit" >Analyze</button>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" data-sb="fadeInRight">Language</label>
+                      <div class="col-sm-10">
+                        <select name="lang" data-sb="fadeInLeft" class="form-control">
+                          <option value="1">FR</option>
+                          <option value="2">EN</option>
+                          <option value="3">JPN</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" data-sb="fadeInRight">Country</label>
+                      <div class="col-sm-10">
+                        <select name="country" class="form-control" data-sb="fadeInLeft">
+                          <option value="1">France</option>
+                          <option value="2">United Kingdom</option>
+                          <option value="3">United States</option>
+                          <option value="4">China</option>
+                        </select>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="select" class="col-lg-1 control-label"></label>
-                  <div class="col-lg-2">
-                    <select class="form-control" id="select">
-                      <option>EN</option>
-                      <option>FR</option>
-                      <option>AR</option>
-                    </select>
+                <div data-step-number="0">
+                  <div class="col-md-4">
+                    <div class="">
+                      <h4 >Your Tweet request</h4>
+                      <div class="cascading-container">
+                        <div data-step-mirror-cascading>
+                          <hr/>
+                            <h5>Personal Information</h5>
+                          <hr/>
+                          <p>Keywords : <span data-input-mirror='[name="keywords"]'></span></p>
+                          <p>Language : <span data-input-mirror='[name="lang"]'></span></p>
+                          <p>Country : <span data-input-mirror='[name="country"]'></span></p>
+                        </div>
+                      </div>    
+                    </div>
                   </div>
                 </div>
-            </form>
+              </div>
+            </div>
           </div>
-        </div> 
+        </form>
       </div>
     </div>
+  </div>
 
     <div id="features">
       <div class="container">
@@ -204,7 +251,7 @@
                 <img src="https://intra.etna-alternance.net/report/trombi/image/login/mejdou_i" class="img-circle" /><div class="divide5"></div>Issam<br/><em>Development full stack</em>
               </div>
               <div class="col-sm-2 text-center">
-                <img src="https://intra.etna-alternance.net/report/trombi/image/login/barre_a" class="img-circle" /><div class="divide5"></div>Adrien<br/><em>Design</em>
+                <img src="https://intra.etna-alternance.net/report/trombi/image/login/barre_a" class="img-circle" /><div class="divide5"></div>Adrien<br/><em>Development front / Desgin</em>
               </div>
             </div>
             <div class="divide20"></div>
@@ -302,35 +349,6 @@
     </div>
   </div>
 
-  <nav class="footer-nav">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <a href="/en/">Home</a>
-          <ul>
-          <li><a href="/en/features">Features</a></li>
-          <li><a href="/en/pricing">Pricing</a></li>
-          <li><a href="/en/contact">Contact us</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4">
-          <a href="https://co-labs.etna.io/projets/Yet%20Another%20Tweets%20Analyzer/dashboard/blog/liste_articles">Blog</a>
-          <ul>
-          <li><a href="https://co-labs.etna.io/projets/Yet%20Another%20Tweets%20Analyzer/dashboard/blog/liste_articles">Last articles</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4">
-          <a href="/fr/" class="inline">French Version</a>
-          <ul>
-          <li><a href="/en/privacy">Privacy</a></li>
-          <li><a href="/en/terms-of-use">Terms of use</a></li>
-          <li><a href="/en/terms-of-service">Terms of service</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-
   <footer>
     <div class="social text-center">
        <a href="#home" title="To Top">
@@ -342,9 +360,11 @@
         <a href="https://www.linkedin.com/company/etna" class="in"><i class="fa fa-linkedin"></i></a>     
       </p>
     </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ultimate-fancy-form.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/google.js"></script>
   </footer>
 </body>
