@@ -6,77 +6,51 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Search
 {
     /**
-     * @var String Twitter username
+     * @var String Twitter searchParams
      * @Assert\NotBlank()
      */
-    private $username;
-
-    /**
-     * @var String Keywords to search for
-     */
-    private $keywords;
-
-    /**
-     * @var String Hashtags to search for
-     */
-    private $hashtags;
+    private $searchParams;
 
     /**
      * @var String Tweet language
      */
     private $lang;
-
+    
     /**
-     * @var String Country location of the tweet
+     * @var String Tweet Local
      */
-    private $country;
+    private $locale;
+    
+    /**
+     * @var String Tweet ResultType
+     */
+    private $resultType;
+    
+    /**
+     * @var String Tweet Count
+     */
+    private $count;
+    
+    /**
+     * @var String Tweet IncludeEntities
+     */
+    private $includeEntities;
 
+    
     /**
      * @return String
      */
-    public function getUsername()
+    public function getSearchParams()
     {
-        return $this->username;
+        return $this->searchParams;
     }
 
     /**
-     * @param String $username
+     * @param String $searchParams
      */
-    public function setUsername($username)
+    public function setSearchParams($searchParams)
     {
-        $this->username = $username;
-    }
-
-    /**
-     * @return String
-     */
-    public function getKeywords()
-    {
-        return $this->keywords;
-    }
-
-    /**
-     * @param String $keywords
-     */
-    public function setKeywords($keywords)
-    {
-        $this->keywords = $keywords;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHashtags()
-    {
-        return $this->hashtags;
-    }
-
-    /**
-     * @param mixed $hashtags
-     */
-    public function setHashtags($hashtags)
-    {
-        $this->hashtags = $hashtags;
+        $this->searchParams = $searchParams;
     }
 
     /**
@@ -94,21 +68,71 @@ class Search
     {
         $this->lang = $lang;
     }
-
+    
     /**
      * @return String
      */
-    public function getCountry()
+    public function getLocale()
     {
-        return $this->country;
+        return $this->locale;
     }
-
+    
     /**
-     * @param String $country
+     * @param String $locale
      */
-    public function setCountry($country)
+    public function setLocale($locale)
     {
-        $this->country = $country;
+        $this->locale = $locale;
     }
+    
+    /**
+     * @return String
+     */
+    public function getResultType()
+    {
+        return $this->resultType;
+    }
+    
+    /**
+     * @param String resultType
+     */
+    public function setResultType($resultType)
+    {
+        $this->resultType = $resultType;
+    }
+    
+    /**
+     * @return Integer
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+    
+    /**
+     * @param Integer count
+     */
+    public function setCount($count)
+    {
+        $this->count = $count;
+    }
+    
+    /**
+     * @return Integer
+     */
+    public function getIncludeEntities()
+    {
+        return $this->includeEntities;
+    }
+    
+    /**
+     * @param Boolean includeEntities
+     */
+    public function setIncludeEntities($includeEntities)
+    {
+        $this->includeEntities = $includeEntities;
+    }
+    
+    
 
 }

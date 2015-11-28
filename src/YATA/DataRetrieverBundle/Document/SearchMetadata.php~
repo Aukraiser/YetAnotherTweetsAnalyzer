@@ -1,0 +1,57 @@
+<?php
+
+namespace YATA\DataRetrieverBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class SearchMetadata {
+    #code
+    
+    /**
+     * @MongoDB\Id
+     */
+    private $id;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $completedIn;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $maxId;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $maxIdString;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $query;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $refreshUrl;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $count;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $sinceId;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $sinceIdString;
+}

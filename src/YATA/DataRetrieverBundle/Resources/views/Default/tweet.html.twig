@@ -3,7 +3,8 @@
     <p>Data:</p>
     {#{% for key, element in data %}#}
         {#{{ key }} : {{ element }}<br>#}
-{#{% endfor %}#}
-<pre>{{ data }}</pre>
+    {#{% endfor %}#}
+    
+    {{ dump(data) }}
 <a href={{ path('yata_data_retriever_homepage') }}>Home page</a>
 {% endblock %}
