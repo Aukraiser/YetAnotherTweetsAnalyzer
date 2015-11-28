@@ -15,7 +15,7 @@ class SearchMetadata
     private $id;
     
     /**
-     * @MongoDB\Int
+     * @MongoDB\Float
      */
     private $completedIn;
     

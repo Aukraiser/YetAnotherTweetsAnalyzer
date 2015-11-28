@@ -1,41 +1,37 @@
 <?php
-namespace YATA\DataRetrieverBundle\Object;
+namespace YATA\DataRetrieverBundle\Document;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
+/**
+ * @MongoDB\Document
+ */
 class Search
 {
     /**
+     * @MongoDB\Id
+     */
+    private $id;
+    
+    /**
      * @var String Twitter searchParams
      * @Assert\NotBlank()
+     * @MongoDB\String
      */
     private $searchParams;
 
     /**
      * @var String Tweet language
+     * @MongoDB\String
      */
     private $lang;
     
     /**
-     * @var String Tweet Local
-     */
-    private $locale;
-    
-    /**
      * @var String Tweet ResultType
+     * @MongoDB\String
      */
     private $resultType;
-    
-    /**
-     * @var String Tweet Count
-     */
-    private $count;
-    
-    /**
-     * @var String Tweet IncludeEntities
-     */
-    private $includeEntities;
-
     
     /**
      * @return String
@@ -72,22 +68,6 @@ class Search
     /**
      * @return String
      */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-    
-    /**
-     * @param String $locale
-     */
-    public function setLocale($locale)
-    {
-        $this->locale = $locale;
-    }
-    
-    /**
-     * @return String
-     */
     public function getResultType()
     {
         return $this->resultType;
@@ -108,31 +88,6 @@ class Search
     {
         return $this->count;
     }
-    
-    /**
-     * @param Integer count
-     */
-    public function setCount($count)
-    {
-        $this->count = $count;
-    }
-    
-    /**
-     * @return Integer
-     */
-    public function getIncludeEntities()
-    {
-        return $this->includeEntities;
-    }
-    
-    /**
-     * @param Boolean includeEntities
-     */
-    public function setIncludeEntities($includeEntities)
-    {
-        $this->includeEntities = $includeEntities;
-    }
-    
     
 
 }
