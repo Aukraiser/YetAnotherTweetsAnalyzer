@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Registration - jQuery Ultimate Fancy Form</title>
+	<script src="js/jquery.js"></script>
+	<link href="css/animate.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-ultimate-fancy-form.min.js"></script>
+	<link href="css/jquery-ultimate-fancy-form.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/custom.css" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="container row">
+    	<div class="form-container">
+      		<form class="form form-horizontal component-uff" onkeypress="return event.keyCode != 13;" role="form">
+		        <div class="row">
+		          <div class="col-md-8">
+		            <div data-step>
+		              <h4 data-sb="fadeInLeft">Analyzis Information</h4>        
+		              <div class="form-group">
+		                <label class="col-sm-2 control-label" data-sb="fadeInRight">Keywords</label>
+		                <div class="col-sm-10">
+		                  <input data-sb="fadeInLeft" type="text" class="form-control" data-validation-required="#keywords_required" name="keywords">
+		                  <div class="clearfix"></div>
+		                  <div id="keywords_required" class="alert alert-danger">Keywords is required</div>
+		                </div>
+		              </div>
+		              <div class="form-group">
+		                <label class="col-sm-2 control-label" data-sb="fadeInRight">Language</label>
+		                <div class="col-sm-10">
+		                  <select name="lang" data-sb="fadeInLeft" class="form-control">
+		                    <option value="1">FR</option>
+		                    <option value="2">EN</option>
+		                    <option value="3">JPN</option>
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="form-group">
+		                <label class="col-sm-2 control-label" data-sb="fadeInRight">Country</label>
+		                <div class="col-sm-10">
+		                  <select name="country" class="form-control" data-sb="fadeInLeft">
+		                    <option value="1">France</option>
+		                    <option value="2">United Kingdom</option>
+		                    <option value="3">United States</option>
+		                    <option value="4">China</option>
+		                  </select>
+		                </div>
+		              </div>
+		          	</div>
+				</div>
+				<div data-step-number="0">
+			      	<div class="col-md-4">
+					  	<div class="">
+					  		<h4 >Your Tweet request</h4>
+				      		<div class="cascading-container">
+				          		<div data-step-mirror-cascading>
+				                  <hr/>
+				                    <h5>Personal Information</h5>
+				                  <hr/>
+				                  <p>Keywords : <span data-input-mirror='[name="keywords"]'></span></p>
+				                  <p>Language : <span data-input-mirror='[name="lang"]'></span></p>
+				                  <p>Country : <span data-input-mirror='[name="country"]'></span></p>
+				                </div>
+				      		</div>    
+				  		</div>
+			  		</div>
+			  	</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
