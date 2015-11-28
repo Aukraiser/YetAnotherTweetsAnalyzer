@@ -1,0 +1,78 @@
+<?php
+
+namespace YATA\DataRetrieverBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class User
+{
+    /**
+     * @MongoDB\Id
+     */
+    private $id;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $userId;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $name;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $screenName;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $location;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $description;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $url;
+    
+    /**
+     * @MongoDB\Boolean
+     */
+    private $protected;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $followersCount;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $friendsCount;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $listedCount;
+    
+    /**
+     * @MongoDB\Date
+     */
+    private $createdAt;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $lang;
+    
+    
+}

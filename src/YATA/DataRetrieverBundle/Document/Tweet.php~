@@ -1,0 +1,63 @@
+<?php
+
+namespace YATA\DataRetrieverBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class Tweet
+{
+    /**
+     * @MongoDB\Id
+     */
+    private $id;
+    
+    /**
+     * @MongoDB\Date
+     */
+    private $createdAt;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $tweetId;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $text;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="User")
+     */
+    private $user;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="Place")
+     */
+    private $place;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $retweetCount;
+    
+    /**
+     * @MongoDB\Int
+     */
+    private $favouriteCount;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $urls;
+    
+    /**
+     * @MongoDB\String
+     */
+    private $lang;
+    
+    
+}
