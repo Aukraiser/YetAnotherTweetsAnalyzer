@@ -8,6 +8,7 @@ use YATA\DataRetrieverBundle\Object\Search;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 use Twitter\OAuth2\Consumer;
+use Twitter\TwitterSearchConverter;
 
 class TwitterController extends Controller
 {
@@ -56,6 +57,19 @@ class TwitterController extends Controller
 
     public function tweetAction(Request $request)
     {
+        //Getting form data
+        $data = $request->request->get('form');
+        
+        $resultsDecode = $this->getTweets($data);
+        $this->saveTweets($resultsDecode);
+        
+        return $this->render('YATADataRetrieverBundle:Default:tweet.html.twig', array('data' => $resultsDecode));
+        
+        return $this->redirect($this->generateUrl('yata_data_retriever_homepage'));
+    }
+    
+    private function getTweets($data)
+    {
         //Creating data to call Twitter API
         $consumer_key = $this->container->getParameter('twitter_app_id');
         $consumer_secret = $this->container->getParameter('twitter_secret');
@@ -63,8 +77,7 @@ class TwitterController extends Controller
         $curl = new Curl();
         $curl->setVerifyPeer(false);
         
-        //Getting form data
-        $data = $request->request->get('form');
+        //Getting the search and all the options
         $searchParams = $data['searchParams'];
         $tabSearch = explode(" ", $searchParams);
         foreach ($tabSearch as $elem)
@@ -78,6 +91,7 @@ class TwitterController extends Controller
         //Getting tweets
         $client = new Browser($curl);
         $consumer = new Consumer($client, $consumer_key, $consumer_secret);
+        //$consumer->setConverter('/1.1/search/tweets.json', new TwitterSearchConverter());
         $query = $consumer->prepare('/1.1/search/tweets.json',
                                     'GET',
                                     array(
@@ -89,10 +103,13 @@ class TwitterController extends Controller
                                         'includeEntities' => $includeEntities
                                     ));
         $results = $consumer->execute($query);
-        //$resultsDecode = bson_decode($results);
-        
-        return $this->render('YATADataRetrieverBundle:Default:tweet.html.twig', array('data' => $results));
-        
-        return $this->redirect($this->generateUrl('yata_data_retriever_homepage'));
+        return $resultsDecode = bson_decode(bson_encode($results->toArray()));
     }
+    
+    private function saveTweets($data)
+    {
+        
+    }
+    
+    
 }
