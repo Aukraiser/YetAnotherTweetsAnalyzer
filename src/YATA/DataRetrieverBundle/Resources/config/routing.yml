@@ -3,11 +3,11 @@ yata_data_retriever:
     defaults: { _controller: YATADataRetrieverBundle:Default:index }
     
 yata_data_retriever_homepage:
-    path:     /twiter
+    path:     /tweet
     defaults: { _controller: YATADataRetrieverBundle:Twitter:index }
 
 yata_data_retriever_tweet:
-    path:     /tweet
+    path:     /tweet/search
     defaults: { _controller: YATADataRetrieverBundle:Twitter:tweet }
     
 yata_data_retriever_searches:
