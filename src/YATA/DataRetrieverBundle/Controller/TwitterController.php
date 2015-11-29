@@ -41,7 +41,7 @@ class TwitterController extends Controller
                     ),
                     'required' => false
                 ))
-            ->add('send', 'submit', array('label' => 'Get Tweets'))
+            ->add('send', 'submit', array('label' => 'Get Tweets', 'attr' => array('class' => 'button')))
             ->getForm();
             
         $form->handleRequest($request);
@@ -51,7 +51,7 @@ class TwitterController extends Controller
             return $this->redirect($this->generateUrl('yata_data_retriever_tweet', array('data' => $form)));
         }
 
-        return $this->render('YATADataRetrieverBundle:Default:index.html.twig',
+        return $this->render('YATADataRetrieverBundle:Twitter:index.html.twig',
                             array('form' => $form->createView()));
     }
 
@@ -60,14 +60,20 @@ class TwitterController extends Controller
         //Getting form data
         $data = $request->request->get('form');
         
+        //Create the Search Object
+        $search = new Search();
+        $search->setSearchParams($data['searchParams']);
+        $search->setLang($data['lang']);
+        $search->setResultType($data['resultType']);
+        
         $resultsDecode = $this->getTweets($data);
         foreach ($resultsDecode->statuses as $tweet)
         {
-            $this->saveTweets($tweet);   
+            $this->saveTweets($tweet, $search);   
         }
-        $this->saveMetadata($resultsDecode->search_metadata);
+        $this->saveMetadata($resultsDecode->search_metadata, $search);
         
-        return $this->render('YATADataRetrieverBundle:Default:tweet.html.twig',
+        return $this->render('YATADataRetrieverBundle:Twitter:tweet.html.twig',
                             array('data' => $resultsDecode->statuses));
         
         return $this->redirect($this->generateUrl('yata_data_retriever_homepage'));
@@ -106,7 +112,15 @@ class TwitterController extends Controller
         return $resultsDecode = json_decode(json_encode($results->toArray()));
     }
     
-    private function saveTweets($data)
+    private function saveSearch($data)
+    {
+        //Get the EntityManager
+        $dm = $this->get('doctrine_mongodb')->getManager();       
+        $dm->persist($data);
+        $dm->flush();
+    }
+    
+    private function saveTweets($data, $search)
     {
         //Get the EntityManager
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -135,6 +149,7 @@ class TwitterController extends Controller
         $user->setCreatedAt($data->user->created_at);
         $user->setLang($data->user->lang);
         $tweet->setUser($user);
+        $tweet->setSearch($search);
         
         
         //Create the Place Object
@@ -154,7 +169,7 @@ class TwitterController extends Controller
         $dm->flush();
     }
     
-    private function saveMetadata($data)
+    private function saveMetadata($data, $search)
     {
         //Get the EntityManager
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -169,6 +184,7 @@ class TwitterController extends Controller
         $sm->setCount($data->count);
         $sm->setSinceId($data->since_id);
         $sm->setSinceIdString($data->since_id_str);
+        $sm->setSearch($search);
         
         $dm->persist($sm);
         $dm->flush();

@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
-{% block body %}
+{% extends 'YATADataRetrieverBundle::base.html.twig' %}
+{% block content %}
     <p>Data:</p>
     {#{% for key, element in data %}#}
         {#{{ key }} : {{ element }}<br>#}
     {#{% endfor %}#}
     
-    {{ dump(data) }}
+    {{ dump(user) }}
 <a href={{ path('yata_data_retriever_homepage') }}>Home page</a>
 {% endblock %}

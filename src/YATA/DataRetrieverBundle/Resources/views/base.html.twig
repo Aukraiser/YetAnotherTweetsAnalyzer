@@ -1,12 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}YATA{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
-</head>
-<body>
-    {% block body %}{% endblock %}
-    {% block javascripts %}{% endblock %}
-</body>
-</html>
+{% extends '::base.html.twig' %}
+{% block body %}
+<header class="navbar" role="banner">
+    <div class="navContainer">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#headerNavigation">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="http://imageshack.com/a/img910/6646/iDB1ZB.png"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#analyzis">ANALYZIS</a></li>
+                        <li><a href="#services">SERVICES</a></li>
+                        <li><a href="#about">ABOUT US</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+{% block content%}{% endblock %}
+<footer>
+    <div class="social text-center">
+        <a href="#home" title="To Top">
+            <span class="fa fa-chevron-up"></span>
+        </a>
+        <p>
+            <a href="https://www.facebook.com/ecole.etna/" class="fb"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/etnaalternance" class="tw"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/etna" class="in"><i class="fa fa-linkedin"></i></a>     
+        </p>
+    </div>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/jquery-ultimate-fancy-form.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="{{ asset('js/google.js') }}"></script>
+</footer>
+{% endblock %}
+  

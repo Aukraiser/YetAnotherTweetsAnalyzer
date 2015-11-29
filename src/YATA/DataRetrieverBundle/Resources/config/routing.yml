@@ -1,11 +1,27 @@
-yata_data_retriever_homepage:
+yata_data_retriever:
     path:     /
+    defaults: { _controller: YATADataRetrieverBundle:Default:index }
+    
+yata_data_retriever_homepage:
+    path:     /twiter
     defaults: { _controller: YATADataRetrieverBundle:Twitter:index }
 
 yata_data_retriever_tweet:
     path:     /tweet
     defaults: { _controller: YATADataRetrieverBundle:Twitter:tweet }
     
-yata_show_data:
-    path:     /show
-    defaults: { _controller: YATADataRetrieverBundle:Twitter:show }
+yata_data_retriever_searches:
+    path:     /search
+    defaults: { _controller: YATADataRetrieverBundle:Search:index }
+    
+yata_data_retriever_tweets:
+    path:     /search/{id}
+    defaults: { _controller: YATADataRetrieverBundle:Search:search }
+    
+yata_data_retriever_users:
+    path:     /user
+    defaults: { _controller: YATADataRetrieverBundle:User:index }
+    
+yata_data_retriever_user:
+    path:     /user/{id}
+    defaults: { _controller: YATADataRetrieverBundle:User:user }

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Yet Another Tweets Analyzer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/main.8.css') }}">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/jquery-ultimate-fancy-form.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+  <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->*
+</head>
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="60">
+    {% block body %}{% endblock %}
+</body>
 </html>

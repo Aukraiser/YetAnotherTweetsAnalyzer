@@ -3,6 +3,9 @@ namespace YATA\DataRetrieverBundle\Document;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use YATA\DataRetrieverBundle\Document\Tweet;
+use YATA\DataRetrieverBundle\Document\SearchMetadata;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @MongoDB\Document
@@ -32,6 +35,16 @@ class Search
      * @MongoDB\String
      */
     private $resultType;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="SearchMetadata", mappedBy="search")
+     */
+    private $searchMetadata;
+    
+    /**
+     * @MongoDB\ReferenceMany(targetDocument="Tweet", mappedBy="search")
+     */
+    private $tweets;
     
     /**
      * @return String
@@ -90,4 +103,79 @@ class Search
     }
     
 
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function __construct()
+    {
+        $this->searchMetadata = new ArrayCollection();
+        $this->tweets = new ArrayCollection();
+    }
+    
+    /**
+     * Add searchMetadatum
+     *
+     * @param YATA\DataRetrieverBundle\Document\SearchMetadata $searchMetadatum
+     */
+    public function addSearchMetadatum(SearchMetadata $searchMetadatum)
+    {
+        $this->searchMetadata[] = $searchMetadatum;
+    }
+
+    /**
+     * Remove searchMetadatum
+     *
+     * @param YATA\DataRetrieverBundle\Document\SearchMetadata $searchMetadatum
+     */
+    public function removeSearchMetadatum(SearchMetadata $searchMetadatum)
+    {
+        $this->searchMetadata->removeElement($searchMetadatum);
+    }
+
+    /**
+     * Get searchMetadata
+     *
+     * @return \Doctrine\Common\Collections\Collection $searchMetadata
+     */
+    public function getSearchMetadata()
+    {
+        return $this->searchMetadata;
+    }
+
+    /**
+     * Add tweet
+     *
+     * @param YATA\DataRetrieverBundle\Document\Tweet $tweet
+     */
+    public function addTweet(Tweet $tweet)
+    {
+        $this->tweets[] = $tweet;
+    }
+
+    /**
+     * Remove tweet
+     *
+     * @param YATA\DataRetrieverBundle\Document\Tweet $tweet
+     */
+    public function removeTweet(Tweet $tweet)
+    {
+        $this->tweets->removeElement($tweet);
+    }
+
+    /**
+     * Get tweets
+     *
+     * @return \Doctrine\Common\Collections\Collection $tweets
+     */
+    public function getTweets()
+    {
+        return $this->tweets;
+    }
 }

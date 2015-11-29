@@ -5,6 +5,7 @@ namespace YATA\DataRetrieverBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use YATA\DataRetrieverBundle\Document\Place;
 use YATA\DataRetrieverBundle\Document\User;
+use YATA\DataRetrieverBundle\Document\Search;
 
 /**
  * @MongoDB\Document
@@ -30,6 +31,11 @@ class Tweet
      * @MongoDB\String
      */
     private $text;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="Search", inversedBy="tweets", cascade={"persist"})
+     */
+    private $search;
     
     /**
      * @MongoDB\ReferenceOne(targetDocument="User", cascade={"persist"})
@@ -242,5 +248,27 @@ class Tweet
     public function getLang()
     {
         return $this->lang;
+    }
+
+    /**
+     * Set search
+     *
+     * @param YATA\DataRetrieverBundle\Document\Search $search
+     * @return self
+     */
+    public function setSearch(Search $search)
+    {
+        $this->search = $search;
+        return $this;
+    }
+
+    /**
+     * Get search
+     *
+     * @return YATA\DataRetrieverBundle\Document\Search $search
+     */
+    public function getSearch()
+    {
+        return $this->search;
     }
 }

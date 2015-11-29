@@ -3,6 +3,9 @@ namespace YATA\DataRetrieverBundle\Document;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use YATA\DataRetrieverBundle\Document\Tweet;
+use YATA\DataRetrieverBundle\Document\SearchMetadata;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @MongoDB\Document
@@ -32,6 +35,16 @@ class Search
      * @MongoDB\String
      */
     private $resultType;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="SearchMetadata", mappedBy="search")
+     */
+    private $searchMetadata;
+    
+    /**
+     * @MongoDB\ReferenceMany(targetDocument="Tweet", mappedBy="search")
+     */
+    private $tweets;
     
     /**
      * @return String
@@ -100,4 +113,63 @@ class Search
     {
         return $this->id;
     }
+    
+    public function __construct()
+    {
+        $this->tweets = new ArrayCollection();
+    }
+
+    /**
+     * Set searchMetadata
+     *
+     * @param YATA\DataRetrieverBundle\Document\SearchMetadata $searchMetadata
+     * @return self
+     */
+    public function setSearchMetadata(\YATA\DataRetrieverBundle\Document\SearchMetadata $searchMetadata)
+    {
+        $this->searchMetadata = $searchMetadata;
+        return $this;
+    }
+    
+    /**
+     * Get searchMetadata
+     *
+     * @return \Doctrine\Common\Collections\Collection $searchMetadata
+     */
+    public function getSearchMetadata()
+    {
+        return $this->searchMetadata;
+    }
+
+    /**
+     * Add tweet
+     *
+     * @param YATA\DataRetrieverBundle\Document\Tweet $tweet
+     */
+    public function addTweet(Tweet $tweet)
+    {
+        $this->tweets[] = $tweet;
+    }
+
+    /**
+     * Remove tweet
+     *
+     * @param YATA\DataRetrieverBundle\Document\Tweet $tweet
+     */
+    public function removeTweet(Tweet $tweet)
+    {
+        $this->tweets->removeElement($tweet);
+    }
+
+    /**
+     * Get tweets
+     *
+     * @return \Doctrine\Common\Collections\Collection $tweets
+     */
+    public function getTweets()
+    {
+        return $this->tweets;
+    }
+
+    
 }

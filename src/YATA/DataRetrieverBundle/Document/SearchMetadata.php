@@ -3,6 +3,7 @@
 namespace YATA\DataRetrieverBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use YATA\DataRetrieverBundle\Document\Tweet;
 
 /**
  * @MongoDB\Document
@@ -53,6 +54,11 @@ class SearchMetadata
      * @MongoDB\String
      */
     private $sinceIdString;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="Search", inversedBy="searchMetadata", cascade={"persist"})
+     */
+    private $search;
 
     /**
      * Get id
@@ -238,5 +244,27 @@ class SearchMetadata
     public function getSinceIdString()
     {
         return $this->sinceIdString;
+    }
+
+    /**
+     * Set search
+     *
+     * @param YATA\DataRetrieverBundle\Document\Search $search
+     * @return self
+     */
+    public function setSearch(Search $search)
+    {
+        $this->search = $search;
+        return $this;
+    }
+
+    /**
+     * Get search
+     *
+     * @return YATA\DataRetrieverBundle\Document\Search $search
+     */
+    public function getSearch()
+    {
+        return $this->search;
     }
 }
