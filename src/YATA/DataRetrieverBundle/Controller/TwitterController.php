@@ -73,8 +73,7 @@ class TwitterController extends Controller
         }
         $this->saveMetadata($resultsDecode->search_metadata, $search);
         
-        return $this->render('YATADataRetrieverBundle:Twitter:tweet.html.twig',
-                            array('data' => $resultsDecode->statuses));
+        return $this->redirect($this->generateUrl('yata_data_retriever_searches'));
         
         return $this->redirect($this->generateUrl('yata_data_retriever_homepage'));
     }
